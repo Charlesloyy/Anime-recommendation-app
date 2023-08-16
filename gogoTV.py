@@ -1,10 +1,11 @@
 import streamlit as st
 import pickle
+import pandas as pd
 from PIL import Image
 import difflib
 
 st.header("Anime Recommendation system")
-foods = pickle.load(open("dataset", "rb"))
+foods = pd.read_csv("anime.csv")
 similar = pickle.load(open("similarity.pkl", "rb"))
 foods_list = foods["title"].values
 
