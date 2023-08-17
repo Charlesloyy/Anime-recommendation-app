@@ -8,6 +8,12 @@ st.header("Anime Recommendation system")
 foods = pd.read_csv("anime.csv")
 similar = pickle.load(open("similarity.pkl", "rb"))
 foods_list = foods["title"].values
+def text(image):
+    image = image.replace("\\", "/")
+    image= f"./{image}"
+    return image
+
+foods["image_dir"] = foods["image_dir"].apply(text)
 
 selected_value = st.selectbox("Search", foods_list)
 
