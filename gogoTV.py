@@ -5,6 +5,16 @@ from PIL import Image
 import difflib
 
 st.header("Anime Recommendation system")
+
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibiity: hidden;}
+            header {visibiity: hidden;}
+            </style>
+"""
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 foods = pd.read_csv("anime.csv")
 similar = pickle.load(open("similarity.pkl", "rb"))
 foods_list = foods["title"].values
